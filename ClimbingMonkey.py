@@ -16,10 +16,10 @@ pygame.display.set_caption("Climbing Monkey")
 
 #Trees
 
-treesImg = pygame.image.load('')
+treesImg = pygame.image.load('mvp_trees.png')
 
 def trees():
-    screen.blit(treesImg, 200, 300)
+    screen.blit(treesImg, (0, 0))
  
 
  
