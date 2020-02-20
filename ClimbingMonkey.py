@@ -1,4 +1,5 @@
 import pygame
+import time
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -18,8 +19,8 @@ pygame.display.set_caption("Climbing Monkey")
 
 treesImg = pygame.image.load('mvp_trees.png')
 
-def trees():
-    screen.blit(treesImg, (0, 0))
+def trees(x):
+    screen.blit(treesImg, (0, x))
  
 
  
@@ -37,7 +38,8 @@ while not done:
 
     screen.fill(GREEN)
 
-    trees()
+    for i in range(600):
+        trees(i)
  
 
     pygame.display.flip()
