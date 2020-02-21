@@ -40,6 +40,7 @@ while not done:
 
     for i in range(600):
         trees(i)
+        pygame.display.flip()
  
 
     pygame.display.flip()
