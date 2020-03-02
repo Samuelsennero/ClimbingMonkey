@@ -26,9 +26,13 @@ def trees(x):
 #Monkey
 
 monkeyImg = pygame.image.load('monkey_mvp.png')
+monkeyflipImg = pygame.image.load('monkey_mvp_flip.png')
 
 def monkey(x):
-    screen.blit(monkeyImg, (x, 300))
+    if x < 200:
+      screen.blit(monkeyImg, (x, 300))
+    else:
+        screen.blit(monkeyflipImg, (x, 300))
 
 done = False
  
