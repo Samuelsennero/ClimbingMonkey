@@ -21,6 +21,7 @@ treesImg = pygame.image.load('mvp_trees.png')
 
 def trees(x):
     screen.blit(treesImg, (0, x))
+    screen.blit(treesImg, (0, x - 600))
  
 
  
