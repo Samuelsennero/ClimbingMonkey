@@ -23,8 +23,13 @@ def trees(x):
     screen.blit(treesImg, (0, x))
     screen.blit(treesImg, (0, x - 600))
  
+#Monkey
 
- 
+monkeyImg = pygame.image.load('monkey_mvp.png')
+
+def monkey(x):
+    screen.blit(monkeyImg, (x, 300))
+
 done = False
  
 clock = pygame.time.Clock()
@@ -41,8 +46,13 @@ while not done:
 
     for i in range(600):
         trees(i)
+        monkey(60) 
         pygame.display.flip()
+
+   
  
+
+
 
     pygame.display.flip()
  
