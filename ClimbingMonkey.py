@@ -53,6 +53,7 @@ while not done:
     screen.blit(treesImg, (0, rel_y - treesImg.get_rect().height))
     if rel_y < 400:
         screen.blit(treesImg, (0, rel_y))
+        
     y += 3
  
 
