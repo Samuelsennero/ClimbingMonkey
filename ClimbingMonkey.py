@@ -6,6 +6,7 @@ WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 BROWN = (102, 51, 0)
+LIGHTBLUE = (153, 179, 255)
  
 pygame.init()
 
@@ -37,29 +38,38 @@ def monkey(x):
 done = False
  
 clock = pygame.time.Clock()
+
+y = 0
  
 while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
+    
+
+    screen.fill(LIGHTBLUE)
+    
+    rel_y = y % treesImg.get_rect().height
+    screen.blit(treesImg, (0, rel_y - treesImg.get_rect().height))
+    if rel_y < 400:
+        screen.blit(treesImg, (0, rel_y))
+    y += 3
  
- 
 
+    
 
-    screen.fill(GREEN)
-
-    for i in range(600):
-        trees(i)
-        monkey(60) 
-        pygame.display.flip()
 
    
- 
+
+    monkey(60)
+
 
 
 
     pygame.display.flip()
- 
+
+
+
 
     clock.tick(60)
  
