@@ -48,11 +48,11 @@ while not done:
     
 
     screen.fill(LIGHTBLUE)
-    
-    rel_y = y % treesImg.get_rect().height
-    screen.blit(treesImg, (0, rel_y - treesImg.get_rect().height))
-    if rel_y < 400:
-        screen.blit(treesImg, (0, rel_y))
+
+    new_tree = y % treesImg.get_rect().height
+    screen.blit(treesImg, (0, new_tree - treesImg.get_rect().height))
+    if new_tree < 600:
+        screen.blit(treesImg, (0, new_tree))
         
     y += 3
  
