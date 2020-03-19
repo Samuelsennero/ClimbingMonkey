@@ -18,22 +18,21 @@ pygame.display.set_caption("Climbing Monkey")
 
 #Trees
 
-treesImg = pygame.image.load('mvp_trees.png')
-
-def trees(x):
-    screen.blit(treesImg, (0, x))
-    screen.blit(treesImg, (0, x - 600))
+treeImg = pygame.image.load('mvp_trees.png')
  
 #Monkey
 
 monkeyImg = pygame.image.load('monkey_mvp.png')
+monkey_x = 60
+monkey_y = 300
+flipped = False
+
 monkeyflipImg = pygame.image.load('monkey_mvp_flip.png')
 
-def monkey(x):
-    if x < 200:
-      screen.blit(monkeyImg, (x, 300))
-    else:
-        screen.blit(monkeyflipImg, (x, 300))
+
+monkeyflip = monkeyImg
+    
+    
 
 done = False
  
@@ -45,24 +44,34 @@ while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                if flipped == False:
+                    monkeyflip = monkeyflipImg
+                    monkey_x += 160
+                    flipped = True
+                elif flipped == True:
+                    monkeyflip = monkeyImg
+                    monkey_x -= 160
+                    flipped = False
+
+                
+ 
+        
     
 
     screen.fill(LIGHTBLUE)
 
-    new_tree = y % treesImg.get_rect().height
-    screen.blit(treesImg, (0, new_tree - treesImg.get_rect().height))
+    new_tree = y % treeImg.get_rect().height
+    screen.blit(treeImg, (0, new_tree - treeImg.get_rect().height))
     if new_tree < 600:
-        screen.blit(treesImg, (0, new_tree))
+        screen.blit(treeImg, (0, new_tree))
         
     y += 3
- 
 
+    screen.blit(monkeyflip,(monkey_x,monkey_y))
     
-
-
-   
-
-    monkey(60)
+ 
 
 
 
