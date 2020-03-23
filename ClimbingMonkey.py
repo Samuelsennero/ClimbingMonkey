@@ -1,13 +1,15 @@
 import pygame
 import time
 
+#Color definitions
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 BROWN = (102, 51, 0)
 LIGHTBLUE = (153, 179, 255)
- 
+
+#Screen setup
 pygame.init()
 
 size = (400, 600)
@@ -16,30 +18,27 @@ screen = pygame.display.set_mode(size)
 pygame.display.set_caption("Climbing Monkey")
 
 
-#Trees
-
+#Tree sprites
 treeImg = pygame.image.load('mvp_trees.png')
  
-#Monkey
-
+#Monkey sprites
 monkeyImg = pygame.image.load('monkey_mvp.png')
+monkeyflipImg = pygame.image.load('monkey_mvp_flip.png')
+
 monkey_x = 60
 monkey_y = 300
 flipped = False
 
-monkeyflipImg = pygame.image.load('monkey_mvp_flip.png')
-
-
 monkeyflip = monkeyImg
     
-    
-
+#Variables
 done = False
  
 clock = pygame.time.Clock()
 
 y = 0
  
+#Main game loop
 while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -57,9 +56,7 @@ while not done:
 
                 
  
-        
-    
-
+    #Animations
     screen.fill(LIGHTBLUE)
 
     new_tree = y % treeImg.get_rect().height
@@ -72,8 +69,6 @@ while not done:
     screen.blit(monkeyflip,(monkey_x,monkey_y))
     
  
-
-
 
 
     pygame.display.flip()
