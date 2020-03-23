@@ -1,5 +1,6 @@
 import pygame
 import time
+import random
 
 #Color definitions
 BLACK = (0, 0, 0)
@@ -17,6 +18,10 @@ screen = pygame.display.set_mode(size)
 
 pygame.display.set_caption("Climbing Monkey")
 
+#Branch sprites
+branchImg = pygame.image.load('branch_mvp.png')
+branchflipImg = pygame.image.load('rotated_branch_mvp.png')
+
 
 #Tree sprites
 treeImg = pygame.image.load('mvp_trees.png')
@@ -32,6 +37,7 @@ flipped = False
 monkeyflip = monkeyImg
     
 #Variables
+
 done = False
  
 clock = pygame.time.Clock()
@@ -59,10 +65,19 @@ while not done:
     #Animations
     screen.fill(LIGHTBLUE)
 
+    chance = random.randint(0, 300)
+    chanceflip = random.randint(0, 1)
+    
+
     new_tree = y % treeImg.get_rect().height
     screen.blit(treeImg, (0, new_tree - treeImg.get_rect().height))
     if new_tree < 600:
         screen.blit(treeImg, (0, new_tree))
+    if new_tree == chance and chanceflip == 0:
+        screen.blit(branchImg, (60, 300))
+    elif new_tree == chance and chanceflip == 1:
+        screen.blit(branchflipImg, (220, 300))
+        
         
     y += 3
 
