@@ -22,7 +22,6 @@ pygame.display.set_caption("Climbing Monkey")
 branchImg = pygame.image.load('branch_mvp.png')
 branchflipImg = pygame.image.load('rotated_branch_mvp.png')
 
-
 #Tree sprites
 treeImg = pygame.image.load('mvp_trees.png')
  
@@ -37,6 +36,11 @@ flipped = False
 monkeyflip = monkeyImg
     
 #Variables
+spawnbranch = False
+spawnflippedbranch = False
+
+branchpos = 0
+flippedbranchpos = 0
 
 done = False
  
@@ -65,19 +69,36 @@ while not done:
     #Animations
     screen.fill(LIGHTBLUE)
 
-    chance = random.randint(0, 300)
+    chance = random.randint(0, 200)
     chanceflip = random.randint(0, 1)
-    
 
     new_tree = y % treeImg.get_rect().height
     screen.blit(treeImg, (0, new_tree - treeImg.get_rect().height))
     if new_tree < 600:
         screen.blit(treeImg, (0, new_tree))
-    if new_tree == chance and chanceflip == 0:
-        screen.blit(branchImg, (60, 300))
-    elif new_tree == chance and chanceflip == 1:
-        screen.blit(branchflipImg, (220, 300))
-        
+    if new_tree == chance and chanceflip == 0 and spawnbranch == False:
+        spawnbranch = True
+    elif new_tree == chance and chanceflip == 1 and spawnflippedbranch == False:
+        spawnflippedbranch = True
+    
+    if branchpos == 200:
+        spawnbranch = False
+    if flippedbranchpos == 200:
+        spawnflippedbranch = False
+
+    if spawnbranch == True and branchpos < 200:
+        new_branch = y % treeImg.get_rect().height
+        screen.blit(branchImg, (60, new_branch - branchImg.get_rect().height))
+        branchpos += 1
+    elif spawnflippedbranch == True and flippedbranchpos < 200:
+        new_flippedbranch = y % treeImg.get_rect().height
+        screen.blit(branchflipImg, (220, new_flippedbranch - branchflipImg.get_rect().height))
+        flippedbranchpos += 1
+    elif branchpos == 200:
+        branchpos = 0
+    elif flippedbranchpos == 200:
+        flippedbranchpos = 0
+
         
     y += 3
 
