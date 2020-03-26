@@ -2,7 +2,7 @@ import pygame
 import time
 import random
 
-#Color definitions
+#Color definitions 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
@@ -117,3 +117,5 @@ while not done:
  
 
 pygame.quit()
+
+#Hej
