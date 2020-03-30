@@ -87,6 +87,7 @@ while not done:
         spawnflippedbranch = False
 
 
+
     if spawnbranch == True and branchpos < 200:
         new_branch = y % treeImg.get_rect().height
         screen.blit(branchImg, (60, new_branch - branchImg.get_rect().height))
@@ -100,7 +101,6 @@ while not done:
     elif flippedbranchpos == 200:
         flippedbranchpos = 0
 
-        
     y += 3
 
     screen.blit(monkeyflip,(monkey_x,monkey_y))
