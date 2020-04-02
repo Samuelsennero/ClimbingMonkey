@@ -47,6 +47,10 @@ done = False
 clock = pygame.time.Clock()
 
 y = 0
+
+b = 0
+
+f = 0
  
 #Main game loop
 while not done:
@@ -88,14 +92,16 @@ while not done:
 
 
 
-    if spawnbranch == True and branchpos < 200:
-        new_branch = y % treeImg.get_rect().height
+    if spawnbranch == True:
+        new_branch = b % treeImg.get_rect().height
         screen.blit(branchImg, (60, new_branch - branchImg.get_rect().height))
         branchpos += 1
-    elif spawnflippedbranch == True and flippedbranchpos < 200:
-        new_flippedbranch = y % treeImg.get_rect().height
+        b += 3
+    elif spawnflippedbranch == True:
+        new_flippedbranch = f % treeImg.get_rect().height
         screen.blit(branchflipImg, (220, new_flippedbranch - branchflipImg.get_rect().height))
         flippedbranchpos += 1
+        f += 3
     elif branchpos == 200:
         branchpos = 0
     elif flippedbranchpos == 200:
