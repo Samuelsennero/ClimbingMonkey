@@ -73,8 +73,9 @@ while not done:
     #Animations
     screen.fill(LIGHTBLUE)
 
-    chance = random.randint(0, 200)
-    chanceflip = random.randint(0, 1)
+    if spawnbranch == False and spawnflippedbranch == False:
+       chance = random.randrange(0, 600, 3)
+       chanceflip = random.randint(0, 1)
 
     new_tree = y % treeImg.get_rect().height
     screen.blit(treeImg, (0, new_tree - treeImg.get_rect().height))
