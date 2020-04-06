@@ -68,19 +68,22 @@ while not done:
                     monkey_x -= 160
                     flipped = False
 
-                
- 
-    #Animations
+              
+    #Animations and spawns
     screen.fill(LIGHTBLUE)
-
+    
+    #Branch randomizer
     if spawnbranch == False and spawnflippedbranch == False:
-       chance = random.randrange(0, 600, 3)
+       chance = random.randrange(0, 90, 3)
        chanceflip = random.randint(0, 1)
 
+    #Tree animation
     new_tree = y % treeImg.get_rect().height
     screen.blit(treeImg, (0, new_tree - treeImg.get_rect().height))
     if new_tree < 600:
         screen.blit(treeImg, (0, new_tree))
+    
+    #Branch spawning
     if new_tree == chance and chanceflip == 0 and spawnbranch == False:
         spawnbranch = True
     elif new_tree == chance and chanceflip == 1 and spawnflippedbranch == False:
@@ -90,8 +93,6 @@ while not done:
         spawnbranch = False
     if flippedbranchpos == 200:
         spawnflippedbranch = False
-
-
 
     if spawnbranch == True:
         new_branch = b % treeImg.get_rect().height
@@ -108,6 +109,14 @@ while not done:
     elif flippedbranchpos == 200:
         flippedbranchpos = 0
 
+    #Branch collision
+    if monkey_y + 100 > branchpos * 3 - 126 > monkey_y and flipped == False:
+        pygame.quit()
+       
+    if monkey_y + 100 > flippedbranchpos * 3 - 126 > monkey_y and flipped == True:
+        pygame.quit()
+    
+    #Game speed
     y += 3
 
     screen.blit(monkeyflip,(monkey_x,monkey_y))
@@ -124,5 +133,3 @@ while not done:
  
 
 pygame.quit()
-
-#Hej
