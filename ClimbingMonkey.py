@@ -34,6 +34,7 @@ monkey_y = 300
 flipped = False
 
 monkeyflip = monkeyImg
+
     
 #Variables
 spawnbranch = False
@@ -71,6 +72,12 @@ while not done:
               
     #Animations and spawns
     screen.fill(LIGHTBLUE)
+
+
+    #Music
+    #pygame.mixer.music.load()
+    #pygame.mixer.music.play(-1)
+    
     
     #Branch randomizer
     if spawnbranch == False and spawnflippedbranch == False:
