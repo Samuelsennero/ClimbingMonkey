@@ -18,6 +18,9 @@ screen = pygame.display.set_mode(size)
 
 pygame.display.set_caption("Climbing Monkey")
 
+#Menu screen
+menuImg = pygame.image.load('programmering_loadingscreen.jpg')
+
 #Branch sprites
 branchImg = pygame.image.load('branch_mvp.png')
 branchflipImg = pygame.image.load('rotated_branch_mvp.png')
@@ -43,6 +46,8 @@ spawnflippedbranch = False
 branchpos = 0
 flippedbranchpos = 0
 
+menu = True
+
 done = False
  
 clock = pygame.time.Clock()
@@ -52,6 +57,25 @@ y = 0
 b = 0
 
 f = 0
+
+while menu == True:
+    for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                done = True
+                menu = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    mousepos = pygame.mouse.get_pos()
+                    print(mousepos)
+                if 380 >= mousepos[0] >= 250 and 400 >= mousepos[1] >= 330:
+                    menu = False
+                elif 130 >= mousepos[0] >= 0 and 370 >= mousepos[1] >= 315:
+                    print("How to play")
+    screen.blit(menuImg, (0, 0))
+    pygame.display.flip()
+    clock.tick(15)
+    
  
 #Main game loop
 while not done:
@@ -70,6 +94,8 @@ while not done:
                     flipped = False
 
               
+
+    
     #Animations and spawns
     screen.fill(LIGHTBLUE)
 
