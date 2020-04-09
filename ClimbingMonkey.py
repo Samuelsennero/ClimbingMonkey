@@ -21,6 +21,9 @@ pygame.display.set_caption("Climbing Monkey")
 #Menu screen
 menuImg = pygame.image.load('programmering_loadingscreen.jpg')
 
+#How to play 1
+how_to_play = pygame.image.load('how_to_play.png')
+ 
 #Branch sprites
 branchImg = pygame.image.load('branch_mvp.png')
 branchflipImg = pygame.image.load('rotated_branch_mvp.png')
@@ -104,7 +107,7 @@ while not done:
     #pygame.mixer.music.load()
     #pygame.mixer.music.play(-1)
     
-    
+
     #Branch randomizer
     if spawnbranch == False and spawnflippedbranch == False:
        chance = random.randrange(0, 90, 3)
