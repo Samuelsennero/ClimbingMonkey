@@ -21,8 +21,8 @@ pygame.display.set_caption("Climbing Monkey")
 #Menu screen
 menuImg = pygame.image.load('programmering_loadingscreen.jpg')
 
-#How to play 1
-how_to_play = pygame.image.load('how_to_play.png')
+#How to play
+howtoplayImg = pygame.image.load('how_to_play.png')
  
 #Branch sprites
 branchImg = pygame.image.load('branch_mvp.png')
@@ -55,31 +55,16 @@ done = False
  
 clock = pygame.time.Clock()
 
+menuscreen = menuImg
+
 y = 0
 
 b = 0
 
 f = 0
 
-while menu == True:
-    for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                done = True
-                menu = False
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                if event.button == 1:
-                    mousepos = pygame.mouse.get_pos()
-                    print(mousepos)
-                if 380 >= mousepos[0] >= 250 and 400 >= mousepos[1] >= 330:
-                    menu = False
-                elif 130 >= mousepos[0] >= 0 and 370 >= mousepos[1] >= 315:
-                    print("How to play")
-    screen.blit(menuImg, (0, 0))
-    pygame.display.flip()
-    clock.tick(15)
-    
- 
+
+
 #Main game loop
 while not done:
     for event in pygame.event.get():
@@ -97,7 +82,24 @@ while not done:
                     flipped = False
 
               
-
+    while menu == True:
+     for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+                pygame.quit()
+                done = True
+                menu = False
+        if event.type == pygame.MOUSEBUTTONDOWN:
+             if event.button == 1:
+                    mousepos = pygame.mouse.get_pos()
+             if 380 >= mousepos[0] >= 250 and 400 >= mousepos[1] >= 330 and menuscreen == menuImg:
+                    menu = False
+             elif 130 >= mousepos[0] >= 0 and 370 >= mousepos[1] >= 315:
+                    menuscreen = howtoplayImg
+             elif 385 >= mousepos[0] >= 260 and 405 >= mousepos[1] >= 345 and menuscreen == howtoplayImg:
+                    menuscreen = menuImg
+     screen.blit(menuscreen, (0, 0))
+     pygame.display.flip()
+     clock.tick(15)
     
     #Animations and spawns
     screen.fill(LIGHTBLUE)
@@ -147,10 +149,10 @@ while not done:
 
     #Branch collision
     if monkey_y + 100 > branchpos * 3 - 126 > monkey_y and flipped == False:
-        pygame.quit()
+        menu = True
        
     if monkey_y + 100 > flippedbranchpos * 3 - 126 > monkey_y and flipped == True:
-        pygame.quit()
+        menu = True
     
     #Game speed
     y += 3
