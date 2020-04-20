@@ -150,9 +150,15 @@ while not done:
     #Branch collision
     if monkey_y + 100 > branchpos * 3 - 126 > monkey_y and flipped == False:
         menu = True
+        monkeyflip = monkeyflipImg
+        monkey_x += 160
+        flipped = True
        
     if monkey_y + 100 > flippedbranchpos * 3 - 126 > monkey_y and flipped == True:
         menu = True
+        monkeyflip = monkeyImg
+        monkey_x -= 160
+        flipped = False
     
     #Game speed
     y += 3
