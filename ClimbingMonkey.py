@@ -64,15 +64,12 @@ b = 0
 
 f = 0
 
-
+ #Music
+pygame.mixer.music.load('Our-Mountain_v003.mp3')
+pygame.mixer.music.play(-1)
 
 #Main game loop
 while not done:
-    
-    #Music
-    pygame.mixer.music.load('Our-Mountain_v003.mp3')
-    pygame.mixer.music.play(-1)
-
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
