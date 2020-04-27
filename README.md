@@ -10,7 +10,7 @@ You are a monkey climbing on a tree, when you see a branch on the tree you press
 other tree and keep climbing. If you are unlucky and hit the branch before you jump you will die and it's **game over**.
 
 ## Prerequisites
-- Python version XX
+- Python version 3.7
 - Pygame
 
 ## How to run the game
