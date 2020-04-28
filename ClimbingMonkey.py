@@ -20,21 +20,21 @@ screen = pygame.display.set_mode(size)
 pygame.display.set_caption("Climbing Monkey")
 
 #Menu screen
-menuImg = pygame.image.load('programmering_loadingscreen.jpg')
+menuImg = pygame.image.load('Images/programmering_loadingscreen.jpg')
 
 #How to play
-howtoplayImg = pygame.image.load('how_to_play.png')
+howtoplayImg = pygame.image.load('Images/how_to_play.png')
  
 #Branch sprites
-branchImg = pygame.image.load('branch_mvp.png')
-branchflipImg = pygame.image.load('rotated_branch_mvp.png')
+branchImg = pygame.image.load('Images/branch_mvp.png')
+branchflipImg = pygame.image.load('Images/rotated_branch_mvp.png')
 
 #Tree sprites
-treeImg = pygame.image.load('mvp_trees.png')
+treeImg = pygame.image.load('Images/mvp_trees.png')
  
 #Monkey sprites
-monkeyImg = pygame.image.load('monkey_mvp.png')
-monkeyflipImg = pygame.image.load('monkey_mvp_flip.png')
+monkeyImg = pygame.image.load('Images/monkey_mvp.png')
+monkeyflipImg = pygame.image.load('Images/monkey_mvp_flip.png')
 
 monkey_x = 60
 monkey_y = 300
@@ -65,7 +65,7 @@ b = 0
 f = 0
 
  #Music
-pygame.mixer.music.load('Our-Mountain_v003.mp3')
+pygame.mixer.music.load('Music/Our-Mountain_v003.mp3')
 pygame.mixer.music.play(-1)
 
 #Main game loop
