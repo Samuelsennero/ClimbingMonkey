@@ -9,3 +9,10 @@ The rules of the game are very simple.
 You are a monkey climbing on a tree, when you see a branch on the tree you press space. Then the monkey will jump to the 
 other tree and keep climbing. If you are unlucky and hit the branch before you jump you will die and it's **game over**.
 
+## Prerequisites
+- Python version 3.7
+- Pygame
+
+## How to run the game
+python ClimbingMonkey.py
+
